@@ -1,0 +1,26 @@
+### Create a new game: `POST /`
+Create a new game. Returns a game object that includes an id, and a key that contains the number of blanks.
+
+### Retrieve a game: `GET /:id`
+Returns the current state of the game.
+
+### Guess a letter: `PUT /:id/:letter`
+Makes a new guess! `:letter` is case insensitve, but must
+be a single letter. Duplicate guesses will error, but don't count
+against you. Every successful request should return a `200` status.
+
+When you make a successful guess, the `game.blanks` key will include an updated array with the correctly guessed letter in the right place of the array.
+
+### Get all the potential words: `GET /words`
+Returns the array of words we use when generating a new game.
+
+interface MyAPIClient {
+  listUsers(): Promise<User[]>; // GET /api/users
+  createUser(data: UserData): Promise<User>; // POST /api/users
+  getUser(id: number): Promise<User>; // GET /api/users/:id
+  updateUser(id: number, data: UserData): Promise<User>; // PUT /api/users/:id
+  removeUser(id: number): Promise<void>; // DELETE /api/users/:id
+}
+
+So whatever language you're using figure out how to craft each of the different HTTP requests they lay out for you in the document. And then once you do, you can put each API call into it's own function and then just call the functions as specified for how the game works. Everything can be in one file. The assignment is making a nice set of functions to make HTTP requests so you as the engineer don't have to dig into the details of how to make an HTTP request everytime. SDK is just a fancy way to say that.
+And it looks like you'll want to run it on the commandline with Node.js
